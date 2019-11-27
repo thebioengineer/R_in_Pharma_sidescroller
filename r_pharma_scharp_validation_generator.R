@@ -111,9 +111,9 @@ pres_FH_scharp <- pres_outline %>%
             					<li> <b>Established 1992</b> </li><br>
             					<li> <b>Worldwide-impact in the fight against cancer,<br/> HIV/AIDS and other infectious diseases.</b> </li><br>
             
-            					<!-- <li><b>Clinical Data Management</b></li> -->
-            					<!-- <li><b>Laboratory Data Management</b></li> -->
-            					<!-- <li><b>Statistical Support and Analysis</b></li> -->
+            					<li><b>Clinical Data Management</b></li>
+            					<li><b>Laboratory Data Management</b></li>
+            					<li><b>Statistical Support and Analysis</b></li>
             					
             				</ul>")))
 

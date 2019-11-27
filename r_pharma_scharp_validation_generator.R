@@ -22,19 +22,22 @@ pres_bio <- pres_title %>%
           			<tr>
           				<td style=\"height:100%;width:30%; font-size:30px;\">
           				<ul style = \"list-style-type: none;\">
-          					<li style = \"margin-top: 10px;\"> <b>Statistical Programmer</b><br> &nbspFred Hutch </li>
-          					<li style = \"margin-top: 10px;\"> <b>R user for 5 years</b></li>
-          					<li style = \"margin-top: 10px;\"> <b>Seattle UseR Organizer</b> </li>
-          					<li style = \"margin-top: 10px;\"> <b>Cascadia R Conf Committee</b> </li>
-          					<li style = \"margin-top: 10px;\"> <b>Enjoy R Package development</b></li>
-          					<li> &nbsp </li>
-          					<li> &nbsp </li>
-          					<li style = \"margin-top: 10px;\"> <b>@ellis_hughes</b> </li>
+                    <li> Statistical Programmer <br> 
+                          <span style=\"font-style: italic;padding-left: 5px;\"> Fred Hutch </span>
+                          </li>
+					          <li> Seattle UseR Organizer </li>
+					          <li> Cascadia R Conf Committee </li>
+					          <li> &nbsp </li>
+					          <li> &nbsp </li>
+					          <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">
+					          <li> <a href=\"https://twitter.com/ellis_hughes\" class=\"fa fa-twitter-square\"></a> @ellis_hughes </li>
+					          <li> <a href=\"https://www.linkedin.com/in/ellishughes\" class=\"fa fa-linkedin-square\"></a> linkedin.com/in/ellishughes </li>
+					          <li> <a href=\"https://www.github.com/thebioengineer\" class=\"fa fa-github-square\"></a> github.com/thebioengineer </li>
           				</ul>
           				</td>
           				<td style=\"height: 500px;width: 30%;padding-top: 100px;\">
           				<div style=\"height:100%\">
-          					<img src=\"img/ellis_hughes.jpg\" style=\"margin: auto; height:100%\"/>
+          					<img src=\"img/ellis_hughes.jpg\" style=\"margin: auto; height:100%;transform: rotate(-90deg);\"/>
           				</div>
           				</td>
           			</table>"),
@@ -42,14 +45,14 @@ pres_bio <- pres_title %>%
 
 # Outline ----
 pres_outline <- pres_bio %>% 
-  slide_wide(title = "Outline",
+  slide(title = "Outline",
         HTML("<div style=\"display:absolute\">
-				      <div style=\"width:100%;font-size:40px;z-index: 10;\">
-        				<p><b> Background </b><p>
+				      <div style=\"width:100%;font-size:40px;z-index: 10;margin-top:75px;position: relative;\">
+        				<p><b> Background </b></p>
         				<p><b> Package Development & Validation Framework </b></p>
         				<p><b> Lessons Learned </b></p>
         			</div>
-        			<div style=\"right: -10%;position: absolute;top: 40%;\">
+        			<div style=\"right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.5;\">
         				<img src=\"img/fh_logo.png\"/>
         			</div>
         			</div>"))
@@ -58,7 +61,7 @@ pres_outline <- pres_bio %>%
 pres_FH_scharp <- pres_outline %>% 
   slide_multipanel(title = "Fred Hutch and SCHARP",
         ## Fred Hutch ----
-        panel(HTML("<div style=\"width:1200px;display:inline-block;padding-top:100px\">
+        panel(HTML("<div style=\"display:inline-block;padding-top:100px\">
                     <style type=\"text/css\">
                       .fhcrc_info_container{
                       	width: 375px;
@@ -120,17 +123,41 @@ pres_FH_scharp <- pres_outline %>%
 # Assays and Correlates of Protection ----
 pres_assays <- pres_FH_scharp %>% 
   slide_multipanel(title = "Assays and Correlates of Protection",
-      panel(HTML("<b> Cutting edge Research in HIV/AIDS prevention and Vaccine Development all over the world</b>
+      panel(HTML("<b> Cutting edge Research in HIV/AIDS prevention <br> and Vaccine Development all over the world</b>
                   <br>
             			<br>
-            			<img src=\"img/scharp_world.jpeg\"/>"))             
-                   
-                   
-                   )
+            			<img src=\"img/scharp_world.jpeg\"/>"), style = "padding-top:100px"),
+      
+      panel(HTML("
+                 <img src=\"https://storage.needpix.com/rsynced_images/crowd-2045498_1280.jpg\"  style=\"max-height:500px;max-width:800px\"/>
+			            <p style=\"font-size:20px\">image source: https://storage.needpix.com/rsynced_images/crowd-2045498_1280.jpg </p>")),
+      panel(HTML("<img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:200px\"/>")),
+      # panel(HTML("<img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:200px; position: relative;z-index: 10;\"/>
+                  # <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:180px; padding-left: 30px;position: relative;z-index: 8; margin-top:-500px;\"/>
+                  # <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:160px; padding-left: 60px;position: relative; z-index: 6; margin-top:-500px;\"/>")),
+      panel(HTML("<img src=\"img/thinker.png\"  style=\"max-height:600px;\"/>")),
+      panel(HTML("<img src=\"img/assaying.png\"  style=\"max-height:600px;\"/>")),
+      panel(HTML("<img src=\"img/visc.png\"  style=\"max-height:600px;margin-top:100px\"/>")),
+      panel(HTML("<h2 style=\"margin-top:100px;\"> Assays are under constant development</h2>
+				          <b> - Antigens could be added to the processing plan </b>	
+				          <br>
+				          <b> - Exploratory endpoints </b>		
+				          <br>
+				          <b> - Processing techniques </b>	
+				          <br>
+				          <img src=\"img/ab.png\"  style=\"margin:auto;\"/>")),
+      panel(HTML("<div class = \"slide_title\" style=\"padding: 20px;\">
+                  <h1 style=\"font-size:60px;;margin-top:100px\"\"> 
+                      We need a validated pipeline that is rigid enough to provide form and consistency between studies,
+                      but flexible enough to handle potential changes
+                  </h1>
+                  </div>
+                 "), style = "width: 800px;"))
 
 
 # Save Output ----
 save_sidescroller(
-  pres_FH_scharp,
+  pres_assays,
   here("r_pharma_scharp_validation_example.html")
 )
+

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="lib/jquery-1.11.0/jquery-1.11.0.min.js"></script>
+<script src="lib/jquery-1.11.0/jquery-migrate-1.2.1.min.js"></script>
+<link href="lib/sidescroll-1.0.0/sidescroll.css" rel="stylesheet" />
+<script src="lib/sidescroll-1.0.0/sidescroll.js"></script>
+<link href="lib/slick-1.8.1/slick.css" rel="stylesheet" />
+<link href="lib/slick-1.8.1/slick-theme.css" rel="stylesheet" />
+<script src="lib/slick-1.8.1/slick.min.js"></script>
+
+</head>
+<body style="background-color:#d7d8d2;;">
+<div class="slide_master_wrapper">
+  <div class="slide_master">
+    <div>
+      <div class="slide_container fit_content" style="visibility:visible;width:1600px">
+        <div class="title_slide generic" id="generic">
+          <div class="slide_title_container" style="text-align:left;">
+            <h1 class="title_text" style="z-index:1000;">Validation Framework for Assay Processing Pipelines</h1>
+            <p class="subtitle_text">Ellis Hughes</p>
+            <p class="subtitle_text">August 23, 2019</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container fit_content" style="visibility:hidden;width:1000px;">
+        <div class="single_panel generic" id="generic">
+          <div class="single_panel_title_box title_box">
+            <div class="slide_title">
+              <h1>Ellis Hughes</h1>
+            </div>
+          </div>
+          <div class="panel"><table style = "width:100%;">
+          			<tr>
+          				<td style="height:100%;width:30%; font-size:30px;">
+          				<ul style = "list-style-type: none;">
+                    <li> Statistical Programmer <br> 
+                          <span style="font-style: italic;padding-left: 5px;"> Fred Hutch </span>
+                          </li>
+					          <li> Seattle UseR Organizer </li>
+					          <li> Cascadia R Conf Committee </li>
+					          <li> &nbsp </li>
+					          <li> &nbsp </li>
+					          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+					          <li> <a href="https://twitter.com/ellis_hughes" class="fa fa-twitter-square"></a> @ellis_hughes </li>
+					          <li> <a href="https://www.linkedin.com/in/ellishughes" class="fa fa-linkedin-square"></a> linkedin.com/in/ellishughes </li>
+					          <li> <a href="https://www.github.com/thebioengineer" class="fa fa-github-square"></a> github.com/thebioengineer </li>
+          				</ul>
+          				</td>
+          				<td style="height: 500px;width: 30%;padding-top: 100px;">
+          				<div style="height:100%">
+          					<img src="img/ellis_hughes.jpg" style="margin: auto; height:100%;transform: rotate(-90deg);"/>
+          				</div>
+          				</td>
+          			</table></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container fit_content" style="visibility:hidden;">
+        <div class="single_panel generic" id="generic">
+          <div class="single_panel_title_box title_box">
+            <div class="slide_title">
+              <h1>Outline</h1>
+            </div>
+          </div>
+          <div class="panel"><div style="display:absolute">
+				      <div style="width:100%;font-size:40px;z-index: 10;margin-top:75px;position: relative;">
+        				<p><b> Background </b></p>
+        				<p><b> Package Development & Validation Framework </b></p>
+        				<p><b> Lessons Learned </b></p>
+        			</div>
+        			<div style="right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.5;">
+        				<img src="img/fh_logo.png"/>
+        			</div>
+        			</div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="multi_panel_title_box title_box">
+            <div class="slide_title">
+              <h1>Fred Hutch and SCHARP</h1>
+            </div>
+          </div>
+          <div class="panel"><div style="display:inline-block;padding-top:100px">
+                    <style type="text/css">
+                      .fhcrc_info_container{
+                      	width: 375px;
+                      	display:inline-block;
+                      	margin:auto;
+                      }
+                    </style>
+    				        <div class="fhcrc_info_container">
+    				        	<div>
+    				        		<img src="http://www.fredhutch.org/content/www/en/about/about-the-hutch/_jcr_content/root/responsivegrid/panelcontainer/contents/textimage_copy/image.img.png" alt="Icon depicting blood stem cell transplantation and immunotherapy" style="margin:auto"/>
+    				        	</div>
+    				        	<h4 style="text-align: center;">Blood Stem Cell Transplantation<br>and Immunotherapy</h4>  
+    				        </div>
+    				        <div class="fhcrc_info_container">
+    				        	<div>
+    				        		<img src="http://www.fredhutch.org/content/www/en/about/about-the-hutch/_jcr_content/root/responsivegrid/panelcontainer/contents/textimage_813484303_/image.img.png" style="margin:auto"/>
+    				        	</div>
+    				        	<h4 style="text-align: center;">Cancer Risk Factors, and Causes,<br>Prevention and Outcomes</h4>  
+    				        </div>
+    				        <div class="fhcrc_info_container">
+    				        	<div>
+    				        		<img src="http://www.fredhutch.org/content/www/en/about/about-the-hutch/_jcr_content/root/responsivegrid/panelcontainer/contents/textimage_467138480_/image.img.png" style="margin:auto"/>
+    				        	</div>
+    				        	<h4 style="text-align: center;">Vaccine Development<br>and Virus-Associated Cancers</h4>  
+    				        </div>				
+    				      </div>
+    			        
+    				      <div>
+    				        <div style="margin:auto;width:70%">
+    				        <div class="fhcrc_info_container">
+    				        	<div>
+    				        		<img src="http://www.fredhutch.org/content/www/en/about/about-the-hutch/_jcr_content/root/responsivegrid/panelcontainer/contents/textimage_copy_copy/image.img.png" style="margin:auto"/>
+    				        	</div>
+    				        	<h4 style="text-align: center;">Molecular Underpinnings of Cancer</h4>  
+    				        </div>
+            
+    				        <div class="fhcrc_info_container">
+    				        	<div>
+    				        		<img src="http://www.fredhutch.org/content/www/en/about/about-the-hutch/_jcr_content/root/responsivegrid/panelcontainer/contents/textimage_813484303__56068710/image.img.png" style="margin:auto"/>
+    				        	</div>
+    				        	<h4 style="text-align: center;">Tumor-Specific Translational Research</h4>  
+    				        </div>
+    				        </div>
+    				      </div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><ul style="list-style-type: none;">
+        
+            					<li><img src="img/logos/scharp.png" style="max-width:800px;margin-top:100px;margin-bottom:50px;"/></li>
+            					
+            					<li> <b>Established 1992</b> </li><br>
+            					<li> <b>Worldwide-impact in the fight against cancer,<br/> HIV/AIDS and other infectious diseases.</b> </li><br>
+            
+            					<li><b>Clinical Data Management</b></li>
+            					<li><b>Laboratory Data Management</b></li>
+            					<li><b>Statistical Support and Analysis</b></li>
+            					
+            				</ul></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="multi_panel_title_box title_box">
+            <div class="slide_title">
+              <h1>Assays and Correlates of Protection</h1>
+            </div>
+          </div>
+          <div class="panel" style="padding-top:100px"><b> Cutting edge Research in HIV/AIDS prevention <br> and Vaccine Development all over the world</b>
+                  <br>
+            			<br>
+            			<img src="img/scharp_world.jpeg"/></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel">
+                 <img src="https://storage.needpix.com/rsynced_images/crowd-2045498_1280.jpg"  style="max-height:500px;max-width:800px"/>
+			            <p style="font-size:20px">image source: https://storage.needpix.com/rsynced_images/crowd-2045498_1280.jpg </p></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><img src="img/sample_coll.png"  style="max-height:600px; padding-top:200px"/></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><img src="img/thinker.png"  style="max-height:600px;"/></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><img src="img/assaying.png"  style="max-height:600px;"/></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><img src="img/visc.png"  style="max-height:600px;margin-top:100px"/></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><h2 style="margin-top:100px;"> Assays are under constant development</h2>
+				          <b> - Antigens could be added to the processing plan </b>	
+				          <br>
+				          <b> - Exploratory endpoints </b>		
+				          <br>
+				          <b> - Processing techniques </b>	
+				          <br>
+				          <img src="img/ab.png"  style="margin:auto;"/></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel" style="width: 800px;"><div class = "slide_title" style="padding: 20px;">
+                  <h1 style="font-size:60px;;margin-top:100px""> 
+                      We need a validated pipeline that is rigid enough to provide form and consistency between studies,
+                      but flexible enough to handle potential changes
+                  </h1>
+                  </div>
+                 </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="multi_panel_title_box title_box">
+            <div class="slide_title">
+              <h1>Package Development and Validation</h1>
+            </div>
+          </div>
+          <div class="panel"><br><br>
+                <p><b> Develop functions as steps in a work flow </b><p>
+                <p><b> Capture all documentation that is required in a validation </b></p>
+                <p><b> Automation tools to support code development </b></p></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><img src="img/standard_wf.PNG"/></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><img src="img/unique_wf.PNG"/></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><img src="img/standard_wf_plus.PNG"/></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><div style="text-align:center;">
+               <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/roxygen2.png"  style="margin:auto;width:500px;"/>
+               <p>Roxygen2 -RStudio (https://github.com/rstudio/hex-stickers/blob/master/PNG/roxygen2.png)</p>
+               </div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><h3>Documenting of the validation process in a vignette:</h3>
+                <br><br><br>
+                <b>Introduction</b>
+                <br>
+                &nbsp Capture the reason behind creating the package<br>
+                <b>Purpose</b><br>
+                &nbsp Goals that the package should achieve<br>
+                <b>Specifications</b><br>
+                &nbsp Capture the process level specifications<br>
+                &nbsp Capture the function level specifications<br>
+                <b>Risk Assessment</b><br>
+                &nbsp Capture the process level risks and mitigations in a table<br>
+                &nbsp Capture the function level risks and mitigations in a table<br></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><div style="text-align:center;">
+                <img src="img/GitHub-Mark.png"/>
+                <p>github.com</p>
+               </div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;background-color: #d3d3d340;">
+        <div class="multi_panel generic" id="generic">
+          <div class="multi_panel_title_box title_box">
+            <div class="slide_title">
+              <h1>Lessons Learned &amp; Observations</h1>
+            </div>
+          </div>
+          <div class="panel"><br>
+                <b>Designing explicit specifications is important</b><br><br>
+                <b>Function naming schemes</b><br><br>
+                <b>Function argument formats</b><br><br>
+                <b>Package Dependencies</b><br><br>
+               <b>Tidy-styling</b></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;background-color: #d3d3d340;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><h2> Observations </h2>
+		          	<h3> Easy to accidentally gloss over important functionality </h3>
+		          	&nbsp Record features explicitly required and double check often 
+		          	<br>
+		          	<h3> Scope creep is inevitable </h3>
+		          	<ul>
+		          	<li>Unforeseen functions</li>
+		          	<li>Additional functionality</li>
+               </ul></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;background-color: #d3d3d340;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><h1> Co-Authors and Support </h1>
+                <ul>
+                <li> Anthony Williams </li>
+                <li> Jimmy Fulp </li>
+                <li> Bharathi Lakshminarayanan </li>
+                <li> Alicia Sato </li>
+                <li> Shannon Grant </li>
+                <li> Paul Stutzman </li>
+                <li> Kate Ostbye </li>
+               </ul></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;background-color: #d3d3d340;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><h2> Fred Hutch is Hiring! </h2>
+                <p> fredhutch.com/careers </p>
+                <img src="https://thebioengineer.github.io/images/r_in_pharma/img/logos/fhcrc.jpg" style = "width:400px"/></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="slide_container" style="visibility:hidden;background-color: #d3d3d340;">
+        <div class="multi_panel generic" id="generic">
+          <div class="panel"><div style="background-color:#112345;">
+               <h1 style="color: white;margin-left: 10px;"> Thank You </h2>
+               <img src="img/r_pharma_logo.png"  style="margin:auto;"/>
+               </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -155,9 +155,76 @@ pres_assays <- pres_FH_scharp %>%
                  "), style = "width: 800px;"))
 
 
+pres_dev_and_val <- pres_assays %>% 
+  slide_multipanel(title = "Package Development and Validation",
+    panel(HTML("<br><br>
+                <p><b> Develop functions as steps in a work flow </b><p>
+                <p><b> Capture all documentation that is required in a validation </b></p>
+                <p><b> Automation tools to support code development </b></p>")),
+    panel(HTML("<img src=\"img/standard_wf.PNG\"/>")),
+    panel(HTML("<img src=\"img/unique_wf.PNG\"/>")),
+    panel(HTML("<img src=\"img/standard_wf_plus.PNG\"/>")),
+    panel(HTML("<div style=\"text-align:center;\">
+               <img src=\"https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/roxygen2.png\"  style=\"margin:auto;width:500px;\"/>
+               <p>Roxygen2 -RStudio (https://github.com/rstudio/hex-stickers/blob/master/PNG/roxygen2.png)</p>
+               </div>")),
+    panel(HTML("<h3>Documenting of the validation process in a vignette:</h3>
+                <br><br><br>
+                <b>Introduction</b>
+                <br>
+                &nbsp Capture the reason behind creating the package<br>
+                <b>Purpose</b><br>
+                &nbsp Goals that the package should achieve<br>
+                <b>Specifications</b><br>
+                &nbsp Capture the process level specifications<br>
+                &nbsp Capture the function level specifications<br>
+                <b>Risk Assessment</b><br>
+                &nbsp Capture the process level risks and mitigations in a table<br>
+                &nbsp Capture the function level risks and mitigations in a table<br>")),
+    panel(HTML("<div style=\"text-align:center;\">
+                <img src=\"img/GitHub-Mark.png\"/>
+                <p>github.com</p>
+               </div>")))
+
+pres_lessonslearned <- pres_dev_and_val %>% 
+  slide_multipanel(title = "Lessons Learned & Observations",
+    panel(HTML("<br>
+                <b>Designing explicit specifications is important</b><br><br>
+                <b>Function naming schemes</b><br><br>
+                <b>Function argument formats</b><br><br>
+                <b>Package Dependencies</b><br><br>
+               <b>Tidy-styling</b>")),
+    panel(HTML("<h2> Observations </h2>
+		          	<h3> Easy to accidentally gloss over important functionality </h3>
+		          	&nbsp Record features explicitly required and double check often 
+		          	<br>
+		          	<h3> Scope creep is inevitable </h3>
+		          	<ul>
+		          	<li>Unforeseen functions</li>
+		          	<li>Additional functionality</li>
+               </ul>")),
+    panel(HTML("<h1> Co-Authors and Support </h1>
+                <ul>
+                <li> Anthony Williams </li>
+                <li> Jimmy Fulp </li>
+                <li> Bharathi Lakshminarayanan </li>
+                <li> Alicia Sato </li>
+                <li> Shannon Grant </li>
+                <li> Paul Stutzman </li>
+                <li> Kate Ostbye </li>
+               </ul>")),
+    panel(HTML("<h2> Fred Hutch is Hiring! </h2>
+                <p> fredhutch.com/careers </p>
+                <img src=\"https://thebioengineer.github.io/images/r_in_pharma/img/logos/fhcrc.jpg\" style = \"width:400px\"/>")),
+    panel(HTML("<div style=\"background-color:#112345;\">
+               <h1 style=\"color: white;margin-left: 10px;\"> Thank You </h2>
+               <img src=\"img/r_pharma_logo.png\"  style=\"margin:auto;\"/>
+               </div>")),
+    style = "background-color: #d3d3d340;")
+
 # Save Output ----
 save_sidescroller(
-  pres_assays,
-  here("r_pharma_scharp_validation_example.html")
+  pres_lessonslearned,
+  here("index.html")
 )
 

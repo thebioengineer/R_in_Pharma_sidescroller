@@ -53,7 +53,7 @@ pres_outline <- pres_bio %>%
         				<p><b> Lessons Learned </b></p>
         			</div>
         			<div style=\"right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.5;\">
-        				<img src=\"img/fh_logo.png\"/>
+        				<img src=\"img/fh_logo.PNG\"/>
         			</div>
         			</div>"))
 
@@ -135,9 +135,9 @@ pres_assays <- pres_FH_scharp %>%
       # panel(HTML("<img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:200px; position: relative;z-index: 10;\"/>
                   # <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:180px; padding-left: 30px;position: relative;z-index: 8; margin-top:-500px;\"/>
                   # <img src=\"img/sample_coll.png\"  style=\"max-height:600px; padding-top:160px; padding-left: 60px;position: relative; z-index: 6; margin-top:-500px;\"/>")),
-      panel(HTML("<img src=\"img/thinker.png\"  style=\"max-height:600px;\"/>")),
-      panel(HTML("<img src=\"img/assaying.png\"  style=\"max-height:600px;\"/>")),
-      panel(HTML("<img src=\"img/visc.png\"  style=\"max-height:600px;margin-top:100px\"/>")),
+      panel(HTML("<img src=\"img/thinker.PNG\"  style=\"max-height:600px;\"/>")),
+      panel(HTML("<img src=\"img/assaying.PNG\"  style=\"max-height:600px;\"/>")),
+      panel(HTML("<img src=\"img/visc.PNG\"  style=\"max-height:600px;margin-top:100px\"/>")),
       panel(HTML("<h2 style=\"margin-top:100px;\"> Assays are under constant development</h2>
 				          <b> - Antigens could be added to the processing plan </b>	
 				          <br>

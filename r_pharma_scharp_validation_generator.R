@@ -41,7 +41,7 @@ pres_bio <- pres_title %>%
           				</div>
           				</td>
           			</table>"),
-        style = "width:1000px;")
+        style = "width:1000px;background-color: #d3d3d340;")
 
 # Outline ----
 pres_outline <- pres_bio %>% 

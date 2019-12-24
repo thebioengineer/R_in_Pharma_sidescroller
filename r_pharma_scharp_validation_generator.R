@@ -53,7 +53,7 @@ pres_outline <- pres_bio %>%
         				<p><b> Lessons Learned </b></p>
         			</div>
         			<div style=\"right: -30%;position: absolute;top: 25%;z-index: 0;opacity: 0.5;\">
-        				<img src=\"img/fh_logo.PNG\"/>
+        				<img src=\"img/FH_logo.PNG\"/>
         			</div>
         			</div>"))
 

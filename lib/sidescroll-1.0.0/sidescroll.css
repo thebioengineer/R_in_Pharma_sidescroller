@@ -1,6 +1,6 @@
 body{
-    width: 95vw;
-    height: 95vh;
+    width: 100vw;
+    height: 100vh;
     margin: 0;
     position: relative;
     top:0;bottom:0; /* vertical center */
@@ -17,6 +17,7 @@ body{
 }
 
 .fit_content {
+  max-width:1600px;
 }
 
 .slide_container img {
@@ -31,20 +32,21 @@ body{
   background: white;
   height: 900px;
   width: 1600px;
-  display: flex;
+  display: block;
   justify-content: center;
   top:0;bottom:0; /* vertical center */
   left:0;right:0; /* horizontal center */
-  margin: auto;
+  margin: 0;
   box-shadow: 0 0 30px #888;
 
 }
 
 .slide_master_wrapper{
   height: 100%;
-  display: flex;
-  justify-content: center;
-  transform-origin: top;
+  width: 100%;
+  /*display: table;*/
+  /*justify-content: center;*/
+  /*transform-origin: top;*/
 }
 
 .slick-list, .slick-track, .generic {
@@ -137,6 +139,8 @@ h1, h2, h3, h4, h5, h6, h7 {
 
 .single_panel .panel{
     margin-top: 0;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .panel p{
@@ -166,4 +170,7 @@ pre {
     border-radius: 4px;
 }
 
+.ui-loader {
+  display: none !important;
+}
 
